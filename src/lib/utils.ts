@@ -24,7 +24,15 @@ export function jsonStringifyPrettier(object: {}) {
 export function qualityToYtDlpCmdOptions(resolution: SelectQuality) {
   switch (resolution) {
     case 'audio': {
-      return ['-f', 'ba'];
+      return [
+        '--extract-audio',
+        '--audio-format',
+        'mp3',
+        '--audio-quality',
+        '0',
+        '-f',
+        'bestaudio'
+      ];
     }
     case '4320p':
     case '2160p':
